@@ -24,7 +24,7 @@ public class GuiCreator {
 	private JPanel panel;
 	private JTextArea textArea;
 	private JTextField commandLine;
-	private final String PATH_CONSOLE = "user@domain:~$";
+	private final String CONSOLE_PATH = "user@domain:~$";
 	private Stack<Memento> stackMemento;
 	private Stack<Memento> stackPreviousMemento;
 	private Originator creatoreMemento;
@@ -69,7 +69,7 @@ public class GuiCreator {
 		commandLine.setFont(new Font("Bitstream Vera Sans Mono", Font.BOLD, 17));
 		commandLine.setForeground(Color.WHITE);
 		commandLine.setCaretColor(Color.WHITE);
-		commandLine.setText(PATH_CONSOLE);
+		commandLine.setText(CONSOLE_PATH);
 		commandLine.addKeyListener(new KeyListener() {	
 			@Override
 			public void keyTyped(KeyEvent e) {}
@@ -82,7 +82,7 @@ public class GuiCreator {
 					tmp = tmp.substring(tmp.indexOf('$')+1);
 					creatoreMemento.set(tmp);
 					textArea.append(tmp.substring(tmp.indexOf('$')+1)+"\n");
-					commandLine.setText(PATH_CONSOLE);
+					commandLine.setText(CONSOLE_PATH);
 					stackMemento.add(creatoreMemento.creaMemento());
 					e.consume();
 				}
@@ -95,7 +95,7 @@ public class GuiCreator {
 						}
 						Memento m = stackMemento.pop();
 						stackPreviousMemento.add(m);
-						commandLine.setText(PATH_CONSOLE+m.getCommand());
+						commandLine.setText(CONSOLE_PATH+m.getCommand());
 						e.consume();
 					}
 				}
@@ -108,7 +108,7 @@ public class GuiCreator {
 						}
 						Memento m = stackPreviousMemento.pop();
 						stackMemento.add(m);
-						commandLine.setText(PATH_CONSOLE+m.getCommand());
+						commandLine.setText(CONSOLE_PATH+m.getCommand());
 						e.consume();
 					}
 				}
