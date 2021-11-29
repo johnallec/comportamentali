@@ -22,11 +22,14 @@ public abstract class Chain {
 	public void setStampanteSuccessiva(Chain nextChain) {
 		this.stampanteSuccessiva = nextChain;
 	}
-	public abstract void stampa(String s);
+	public void stampa(String s) {
+		Thread t = new Thread(new Slave(s, this));
+		t.start();
+	}
 	public String getNomeStampante() {
 		return nomeStampante;
 	}
-	public void setStampando(boolean b) {
+	public synchronized void setStampando(boolean b) {
 		stampando = b;
 	}
 	public synchronized boolean getStampando() {

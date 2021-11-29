@@ -6,10 +6,4 @@ public class Stampante3 extends Chain {
 		super();
 		nomeStampante = "Stampante3";
 	}
-	
-	@Override
-	public void stampa(String s) {
-		Thread t = new Thread(new Slave(s, this));
-		t.start();
-	}
 }

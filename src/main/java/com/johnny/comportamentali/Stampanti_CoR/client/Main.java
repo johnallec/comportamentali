@@ -20,7 +20,7 @@ public class Main {
 		p1.stampa("EEEE");
 		p1.stampa("FFFF");
 		p1.stampa("GGGG");
-		p1.stampa("HHHHH");
+		p1.stampa("HHHH");
 	}
 
 }
