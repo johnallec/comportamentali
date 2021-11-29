@@ -9,10 +9,7 @@ public class Stampante3 extends Chain {
 	
 	@Override
 	public void stampa(String s) {
-		if(!getStampando()) {
-			Thread t = new Thread(new Slave(s, this));
-			t.start();
-		}
-		else System.out.println("STAMPANTI-TERMINATE");;
+		Thread t = new Thread(new Slave(s, this));
+		t.start();
 	}
 }

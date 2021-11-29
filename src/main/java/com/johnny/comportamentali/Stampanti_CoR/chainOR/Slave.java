@@ -11,14 +11,19 @@ public class Slave implements Runnable{
 	}
 	@Override
 	public void run() {
-		try {
-			c.setStampando(true);
-			System.out.println(s + " <" + c.nomeStampante + ">");
-			Thread.sleep(1000);
-			c.setStampando(false);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		if(!c.getStampando()) {
+			try {
+				c.setStampando(true);
+				System.out.println(s + " <" + c.nomeStampante + ">");
+				Thread.sleep(1);
+				c.setStampando(false);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
+		else if(c.stampanteSuccessiva!=null)
+			c.stampanteSuccessiva.stampa(s);
+		else System.out.println("IMPOSSIBILE-STAMPARE <-> " + s);
 	}
 
 }
