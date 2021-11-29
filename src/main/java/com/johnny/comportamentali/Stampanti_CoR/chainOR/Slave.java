@@ -15,7 +15,7 @@ public class Slave implements Runnable{
 			try {
 				c.setStampando(true);
 				System.out.println(s + " <" + c.nomeStampante + ">");
-				Thread.sleep(1);
+				Thread.sleep(200);
 				c.setStampando(false);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
